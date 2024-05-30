@@ -7,4 +7,8 @@ require (
 	golang.org/x/net v0.25.0
 )
 
-require golang.org/x/sys v0.20.0 // indirect
+require (
+	github.com/songgao/ether v0.0.0-20160405025533-9fe60a3d7827 // indirect
+	github.com/songgao/packets v0.0.0-20160404182456-549a10cd4091 // indirect
+	golang.org/x/sys v0.20.0 // indirect
+)

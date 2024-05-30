@@ -1,5 +1,9 @@
 github.com/facebook/time v0.0.0-20240501094127-b56da860b6c1 h1:kd2vVmWJ+85x4mmtLtu+t2RIt+qbdOOZmprW6VKVHcU=
 github.com/facebook/time v0.0.0-20240501094127-b56da860b6c1/go.mod h1:2UFAomOuD2vAK1x68czUtCVjAqmyWCEnAXOlmGqf+G0=
+github.com/songgao/ether v0.0.0-20160405025533-9fe60a3d7827 h1:YdjnMSqA1nuvBL/jjULGcDVQTVPeo3ytQNHV0iynH+s=
+github.com/songgao/ether v0.0.0-20160405025533-9fe60a3d7827/go.mod h1:hmeH+x9cso5cnLTADoP/08Zgtfr8btnkKbb7LwhQTSg=
+github.com/songgao/packets v0.0.0-20160404182456-549a10cd4091 h1:1zN6ImoqhSJhN8hGXFaJlSC8msLmIbX8bFqOfWLKw0w=
+github.com/songgao/packets v0.0.0-20160404182456-549a10cd4091/go.mod h1:N20Z5Y8oye9a7HmytmZ+tr8Q2vlP0tAHP13kTHzwvQY=
 golang.org/x/net v0.25.0 h1:d/OCCoBEUq33pjydKrGQhw7IlUPI2Oylr+8qLx49kac=
 golang.org/x/net v0.25.0/go.mod h1:JkAGAh7GEvH74S6FOH42FLoXpXbE/aqXSrIQjXgsiwM=
 golang.org/x/sys v0.20.0 h1:Od9JTbYCk261bKm4M/mw7AklTlFYIa0bIp9BgSm1S8Y=
