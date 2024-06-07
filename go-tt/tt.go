@@ -9,14 +9,7 @@ import (
 	"unsafe"
 )
 
-// Variables shared by the listeners
 var (
-	gtp_tun_opponent_addr_string string
-	enable_unicast               bool
-	enable_twostep               bool
-	port_interface_name          string
-	unicast_addr_string          string
-
 	last_sync_residence_time           protocol.Correction
 	last_sync_residence_time_mutex     sync.Mutex
 	last_delayreq_residence_time       protocol.Correction

@@ -7,11 +7,22 @@ import (
 	"time"
 )
 
+// Configuration also used by listeners
+var (
+	gtp_tun_opponent_addr_string string
+	enable_unicast               bool
+	enable_twostep               bool
+	enable_integrated_tsnaf      bool
+	port_interface_name          string
+	unicast_addr_string          string
+)
+
 func main() {
 	// The term "port" such as in "port_interface" refers to the outside connections of TSN bridge which normally are ethernet ports
 	gtp_tun_opponent_addr_string_flag := flag.String("tunopip", "10.60.0.1", "IP of the other endpoint of the gtp tunnel where ptp packets will be forwarded to (in upstream direction there is no interface ip just the routing matters)")
 	enable_unicast_flag := flag.Bool("unicast", false, "Switch operation from multicast to unicast")
 	enable_twostep_flag := flag.Bool("twostep", false, "Switch operation from one step to two step")
+	enable_integrated_tsnaf_flag := flag.Bool("tsnaf", false, "Enable integrated TSN application function (enable only in UPF)")
 	port_interface_name_flag := flag.String("portif", "eth1", "Interface of TT bridge outside port (only used with multicast)")
 	unicast_addr_string_flag := flag.String("unicastip", "10.100.201.200", "IP of the connected PTP client/server (only used with unicast)")
 	flag.Parse()
@@ -19,15 +30,12 @@ func main() {
 	gtp_tun_opponent_addr_string = *gtp_tun_opponent_addr_string_flag
 	enable_unicast = *enable_unicast_flag
 	enable_twostep = *enable_twostep_flag
+	enable_integrated_tsnaf = *enable_integrated_tsnaf_flag
 	port_interface_name = *port_interface_name_flag
 	unicast_addr_string = *unicast_addr_string_flag
 	last_sync_residence_time = 0
 	last_delayreq_residence_time = 0
 
-	TtListen()
-}
-
-func TtListen() {
 	// Setup Internal 5GS connection
 	// IP port 38495 is chosen to communicate between UE and UPF because the multicast is bound to 319 and 320
 	fivegs_addr, err := net.ResolveUDPAddr("udp", gtp_tun_opponent_addr_string+":38495")
